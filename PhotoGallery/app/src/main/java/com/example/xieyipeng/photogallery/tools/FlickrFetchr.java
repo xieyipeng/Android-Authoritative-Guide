@@ -23,7 +23,6 @@ public class FlickrFetchr {
     public byte[] getUrlBytes(String urlSpec) throws IOException {
         URL url = new URL(urlSpec);
         HttpURLConnection connection = (HttpURLConnection) url.openConnection();
-
         try {
             ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
             InputStream inputStream = connection.getInputStream();
@@ -31,7 +30,6 @@ public class FlickrFetchr {
             if (connection.getResponseCode() != HttpURLConnection.HTTP_OK) {
                 throw new IOException(connection.getResponseCode() + ": with " + urlSpec);
             }
-
             int bytesRead = 0;
             byte[] buffer = new byte[1024];
             while ((bytesRead = inputStream.read(buffer)) > 0) {
@@ -60,7 +58,7 @@ public class FlickrFetchr {
                     .build()
                     .toString();
             String jsonString = getUrlString(url);
-            Log.e(TAG, "fetchItems: "+jsonString );
+            Log.e(TAG, "fetchItems: " + jsonString);
         } catch (IOException e) {
             Log.e(TAG, "fetchItems: " + e.getMessage());
         }
