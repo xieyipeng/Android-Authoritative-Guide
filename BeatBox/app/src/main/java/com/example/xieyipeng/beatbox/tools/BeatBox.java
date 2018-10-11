@@ -34,7 +34,6 @@ public class BeatBox {
         String[] soundNames;
         try {
             soundNames = manager.list(SOUNDS_FOLDER);
-            Log.e(TAG, "loadSounds: " + soundNames.length + " sounds");
             for (String filrname :
                     soundNames) {
                 String assetPath = SOUNDS_FOLDER + "/" + filrname;
